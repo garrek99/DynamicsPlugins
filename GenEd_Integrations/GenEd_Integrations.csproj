@@ -3,11 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>$(NoWarn);NU1701</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Modern Dataverse SDK -->
-    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.2.3" />
+    <!-- Modern Dataverse SDK 
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.2.3" />-->
     
     <!-- Plugin SDK Interfaces -->
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.45" />

@@ -12,6 +12,7 @@ namespace GenEd_Integrations
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             IOrganizationServiceFactory serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             IOrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
+            tracer.Trace("🔥 Plugin TruncatePatientTablesPlugin started executing.");
 
             try
             {
@@ -39,11 +40,13 @@ namespace GenEd_Integrations
             do
             {
                 results = service.RetrieveMultiple(query);
+                tracer.Trace($"✅ Found {results.Entities.Count} records in {entityLogicalName}");
 
                 foreach (var record in results.Entities)
                 {
                     service.Delete(entityLogicalName, record.Id);
                     totalDeleted++;
+                    tracer.Trace($"✅ Found {results.Entities.Count} records in {entityLogicalName}");
                 }
 
                 query.PageInfo.PageNumber++;

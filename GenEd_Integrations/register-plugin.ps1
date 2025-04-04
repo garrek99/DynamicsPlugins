@@ -7,7 +7,7 @@ Write-Host "`nChecking PAC auth..."
 pac auth whoami
 if ($LASTEXITCODE -ne 0) {
     Write-Host "`nRunning authentication..."
-    pac auth create --url "https://orgf3ad7966.crm.dynamics.com"
+    pac auth create --environment "https://orgf3ad7966.crm.dynamics.com"
 }
 
 # Register plugin
